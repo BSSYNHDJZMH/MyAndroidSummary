@@ -1,6 +1,7 @@
 package com.example.mhzhaog.myandroidsummary.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.mhzhaog.myandroidsummary.R
+import com.example.mhzhaog.myandroidsummary.activity.SeekBarActivity
+import kotlinx.android.synthetic.main.fragment_map.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,6 +32,7 @@ class MapFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
+//    private var context= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,7 @@ class MapFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+//        context = activity.
     }
 
     override fun onCreateView(
@@ -49,6 +54,15 @@ class MapFragment : Fragment() {
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button.setOnClickListener {
+            var intent =Intent()
+            intent.setClass(context,SeekBarActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onAttach(context: Context) {
