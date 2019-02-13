@@ -21,7 +21,7 @@ public class SeekBarActivity extends AppCompatActivity {
     private Button buttonPlay;
     private Button buttonPause;
     private ProgressBar progressBar;
-    private int saveTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
